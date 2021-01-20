@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:background="@color/colorVideoOverlay"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <View
+        android:id="@+id/center"
+        android:layout_width="63dp"
+        android:layout_height="65dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent" />
+
+    <ImageButton
+        android:id="@id/exo_play"
+        android:layout_width="63dp"
+        android:layout_height="65dp"
+        style="@style/ExoMediaButton.Play"
+        android:tint="@color/colorChemistry"
+        android:src="@drawable/play_button_small"
+        android:background="@drawable/play_bacground_right"
+        app:layout_constraintStart_toStartOf="@id/center"
+        app:layout_constraintTop_toTopOf="@id/center"/>
+
+    <ImageButton
+        android:id="@id/exo_pause"
+        android:layout_width="63dp"
+        android:layout_height="65dp"
+        style="@style/ExoMediaButton.Pause"
+        android:tint="@color/colorPhysics"
+        android:src="@drawable/pause_button"
+        android:background="@drawable/pause_background"
+        app:layout_constraintStart_toStartOf="@id/center"
+        app:layout_constraintTop_toTopOf="@id/center"/>
+
+    <ImageButton
+        android:id="@id/exo_rew"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="31dp"
+        style="@style/ExoMediaButton.Rewind"
+        android:background="@android:color/transparent"
+        android:src="@drawable/seek_backward"
+        app:layout_constraintTop_toTopOf="@id/center"
+        app:layout_constraintEnd_toStartOf="@id/center"
+        app:layout_constraintBottom_toBottomOf="@id/center"/>
+
+    <ImageButton
+        android:id="@id/exo_ffwd"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="31dp"
+        style="@style/ExoMediaButton.FastForward"
+        android:background="@android:color/transparent"
+        android:src="@drawable/seek_forward"
+        app:layout_constraintTop_toTopOf="@id/center"
+        app:layout_constraintStart_toEndOf="@id/center"
+        app:layout_constraintBottom_toBottomOf="@id/center"/>
+
+    <com.google.android.exoplayer2.ui.DefaultTimeBar
+        android:id="@id/exo_progress"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:played_color="@color/colorWhite"
+        android:layout_margin="20dp"
+        app:scrubber_drawable="@drawable/circle"
+        app:scrubber_color="@color/colorWhite"
+        app:bar_height="2dp"
+        app:layout_constraintStart_toEndOf="@id/exo_position"
+        app:layout_constraintEnd_toStartOf="@id/exo_duration"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:unplayed_color="@color/colorWhiteLight"/>
+
+    <TextView
+        android:id="@id/exo_position"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="@color/colorWhiteDuration"
+        android:fontFamily="@font/mulish_bold"
+        tools:text="@tools:sample/date/hhmm"
+        android:layout_marginStart="20dp"
+        app:layout_constraintTop_toTopOf="@id/exo_progress"
+        app:layout_constraintBottom_toBottomOf="@id/exo_progress"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toStartOf="@id/exo_progress"
+        android:textSize="10sp"
+        tools:ignore="SmallSp" />
+
+    <TextView
+        android:id="@id/exo_duration"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="@color/colorWhiteDuration"
+        android:fontFamily="@font/mulish_bold"
+        tools:text="@tools:sample/date/hhmm"
+        android:layout_marginEnd="20dp"
+        app:layout_constraintTop_toTopOf="@id/exo_progress"
+        app:layout_constraintBottom_toBottomOf="@id/exo_progress"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@id/exo_progress"
+        android:textSize="10sp"
+        tools:ignore="SmallSp" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#6200EE</color>
+    <color name="colorPrimaryDark">#000000</color>
+    <color name="colorAccent">#03DAC5</color>
+    <color name="colorText">#313848</color>
+    <color name="colorTextLight">#9799A1</color>
+    <color name="colorWhite">#FFFFFF</color>
+    <color name="colorWhiteLight">#4DFFFFFF</color>
+    <color name="colorWhiteDuration">#99FFFFFF</color>
+    <color name="colorBio">#4DA47E</color>
+    <color name="colorMaths">#EA7052</color>
+    <color name="colorPhysics">#7B7FDA</color>
+    <color name="colorChemistry">#F9AD6D</color>
+    <color name="colorEnglish">#506AAC</color>
+    <color name="colorBackground">#EDEDEE</color>
+    <color name="colorVideoOverlay">#33000000</color>
+</resources>

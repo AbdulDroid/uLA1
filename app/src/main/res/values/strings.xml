@@ -1,0 +1,16 @@
+<resources>
+    <string name="app_name">uLesson</string>
+    <string name="action_settings">Settings</string>
+    <!-- Strings used for fragments for navigation -->
+    <string name="first_fragment_label">Home Fragment</string>
+    <string name="second_fragment_label">Second Fragment</string>
+
+    <string name="home_page_header">Hello Simbi</string>
+    <string name="subject_icon">Subject Icon</string>
+    <string name="recently_watched_header">Recently watched topics</string>
+    <string name="thumbnail">Thumbnail</string>
+    <string name="play_button">Play button</string>
+    <string name="view_all">View All</string>
+    <string name="lesson_image">Lesson Image</string>
+    <string name="back_button">Back Button</string>
+</resources>

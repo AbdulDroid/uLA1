@@ -1,0 +1,104 @@
+apply plugin: 'com.android.application'
+apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-android-extensions'
+apply plugin: 'kotlin-kapt'
+apply plugin: 'dagger.hilt.android.plugin'
+//apply plugin: 'kotlin-allopen'
+apply plugin: "androidx.navigation.safeargs.kotlin"
+
+android {
+    compileSdkVersion Config.compileSdk
+
+    defaultConfig {
+        applicationId "com.ulesson.androidinterview"
+        minSdkVersion Config.minSdk
+        targetSdkVersion Config.targetsdk
+        versionCode Releases.versionCode
+        versionName Releases.versionName
+
+        buildConfigField("String", "BASE_URL", BASE_URL)
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+    kotlinOptions {
+        jvmTarget = '1.8'
+    }
+}
+
+dependencies {
+    implementation(
+            fileTree(dir: "libs", include: ["*.jar"]),
+            /*project(Modules.cache),
+            project(Modules.home),
+            project(Modules.lesson),
+            project(Modules.subject),
+            project(Modules.network),*/
+            Libs.kotlin_stdlib,
+            Libs.androidx_core,
+            Libs.appcompat,
+            Libs.material,
+            Libs.constraint_layout,
+            Libs.navigation_fragment,
+            Libs.navigation_ui,
+            Libs.dagger_hilt_android,
+            Libs.retrofit,
+            Libs.fragment,
+            Libs.activity,
+            Libs.hilt_lifecycle_viewmodel,
+            Libs.retrofit_gson_converter,
+            Libs.gson,
+            Libs.coroutine_core,
+            Libs.coroutines_android,
+            Libs.logging_interceptor,
+            Libs.picasso,
+            Libs.room,
+            Libs.room_runtime,
+            Libs.lifecycle_viewmodel,
+            Libs.recyclerview,
+            Libs.exoplayer_core,
+            Libs.exoplayer_ui,
+            Libs.legacy
+    )
+    debugImplementation (
+            Libs.fragment_testing,
+            Libs.testing_core
+    )
+    kapt (
+            Libs.room_compiler,
+            Libs.hilt_android_compiler,
+            Libs.hilt_compiler
+    )
+    testImplementation (
+            Libs.junit,
+            Libs.room_testing,
+            Libs.mock_webserver,
+            Libs.core_testing,
+            Libs.mockito_core,
+            Libs.coroutines_test
+    )
+
+    androidTestImplementation(
+            Libs.junit_ext,
+            Libs.core_testing,
+            Libs.espresso_core,
+            Libs.truth_ext,
+            Libs.truth,
+            Libs.coroutines_test,
+            Libs.runner,
+            Libs.rules,
+            Libs.mockito_core,
+            Libs.espresso_contrib,
+            Libs.ui_automator
+    )
+
+}
