@@ -6,6 +6,7 @@ import androidx.room.Insert
 import androidx.room.OnConflictStrategy
 import androidx.room.Query
 import com.ulesson.androidinterview.model.local.entities.Chapter
+import com.ulesson.androidinterview.model.local.entities.ChapterWithLessons
 
 @Dao
 interface ChapterDao {
@@ -14,6 +15,9 @@ interface ChapterDao {
 
     @Query("select * from chapter where subject_id=:subject_id")
     fun getChapters(subject_id: Int): LiveData<List<Chapter>>
+
+    @Query("select * from chapter where subject_id=:subject_id")
+    fun getChapterWithLessons(subject_id: Int): LiveData<List<ChapterWithLessons>>
 
     @Query("select name from chapter where id=:id limit 1")
     fun getChapterNameById(id: Int): String

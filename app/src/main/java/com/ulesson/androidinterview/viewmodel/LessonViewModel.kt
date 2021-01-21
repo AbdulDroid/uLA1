@@ -5,7 +5,7 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MediatorLiveData
 import androidx.lifecycle.viewModelScope
 import com.ulesson.androidinterview.model.local.entities.Lesson
-import com.ulesson.androidinterview.model.local.entities.LessonAndSubject
+import com.ulesson.androidinterview.model.local.entities.RecentlyViewedWithSubject
 import com.ulesson.androidinterview.model.repositories.LessonRepository
 import kotlinx.coroutines.launch
 
@@ -16,8 +16,8 @@ class LessonViewModel @ViewModelInject constructor(
     private val _lessons = MediatorLiveData<List<Lesson>>()
     val lessons: LiveData<List<Lesson>> = _lessons
 
-    private val _recentlyPlayed = MediatorLiveData<List<LessonAndSubject>>()
-    val recentlyPlayed: LiveData<List<LessonAndSubject>> = _recentlyPlayed
+    private val _recentlyPlayed = MediatorLiveData<List<RecentlyViewedWithSubject>>()
+    val recentlyPlayed: LiveData<List<RecentlyViewedWithSubject>> = _recentlyPlayed
 
     fun getLessons(subject_id: Int, chapter_id: Int) = viewModelScope.launch {
         loadResult {

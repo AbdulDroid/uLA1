@@ -5,7 +5,7 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MediatorLiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.viewModelScope
-import com.ulesson.androidinterview.model.local.entities.Chapter
+import com.ulesson.androidinterview.model.local.entities.ChapterWithLessons
 import com.ulesson.androidinterview.model.repositories.ChapterRepository
 import kotlinx.coroutines.launch
 
@@ -13,8 +13,8 @@ class ChapterViewModel @ViewModelInject constructor(
     private val repo: ChapterRepository
 ): BaseViewModel() {
 
-    private val _chapters = MediatorLiveData<List<Chapter>>()
-    val chapters: LiveData<List<Chapter>> = _chapters
+    private val _chapters = MediatorLiveData<List<ChapterWithLessons>>()
+    val chapters: LiveData<List<ChapterWithLessons>> = _chapters
 
     private val _chapterName = MutableLiveData<String>()
     val chapterName: LiveData<String> = _chapterName

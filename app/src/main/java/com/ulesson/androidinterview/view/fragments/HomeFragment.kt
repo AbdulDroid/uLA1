@@ -10,7 +10,7 @@ import androidx.fragment.app.viewModels
 import androidx.lifecycle.observe
 import com.ulesson.androidinterview.R
 import com.ulesson.androidinterview.model.local.entities.Lesson
-import com.ulesson.androidinterview.model.local.entities.LessonAndSubject
+import com.ulesson.androidinterview.model.local.entities.RecentlyViewedWithSubject
 import com.ulesson.androidinterview.model.local.entities.Subject
 import com.ulesson.androidinterview.navigation.NavDispatcher
 import com.ulesson.androidinterview.view.adapters.RecentlyViewedListAdapter
@@ -33,7 +33,7 @@ class HomeFragment : Fragment(), SubjectGridAdapter.OnItemClickListener,
     private val lessonsModel: LessonViewModel by viewModels()
     private lateinit var adapter: SubjectGridAdapter
     private lateinit var recentlyPlayedAdapter: RecentlyViewedListAdapter
-    private lateinit var recentList: List<LessonAndSubject>
+    private lateinit var recentList: List<RecentlyViewedWithSubject>
     private var isMore = false
 
     @Inject
