@@ -34,7 +34,7 @@ class SubjectFragment : Fragment(), LessonListAdapter.OnItemClickListener {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         viewModel.getChapters(args.subject.id)
-        adapter = ChaptersListAdapter(this)
+        adapter = ChaptersListAdapter()
     }
 
     override fun onCreateView(

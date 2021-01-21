@@ -10,11 +10,11 @@ import androidx.recyclerview.widget.RecyclerView
 import com.squareup.picasso.Picasso
 import com.ulesson.androidinterview.R
 import com.ulesson.androidinterview.model.local.entities.Lesson
-import com.ulesson.androidinterview.model.local.entities.LessonAndSubject
+import com.ulesson.androidinterview.model.local.entities.RecentlyViewedWithSubject
 import kotlinx.android.synthetic.main.recently_viewed_list_item.view.*
 
 class RecentlyViewedListAdapter(private val listener: OnItemInteractionListener) :
-    ListAdapter<LessonAndSubject, RecentlyViewedListAdapter.ViewHolder>(DiffCallback()) {
+    ListAdapter<RecentlyViewedWithSubject, RecentlyViewedListAdapter.ViewHolder>(DiffCallback()) {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int) = ViewHolder(
         LayoutInflater.from(parent.context)
@@ -27,7 +27,7 @@ class RecentlyViewedListAdapter(private val listener: OnItemInteractionListener)
 
 
     inner class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
-        fun bind(item: LessonAndSubject) = with(itemView) {
+        fun bind(item: RecentlyViewedWithSubject) = with(itemView) {
             lessonName.text = item.lesson.name
             subjectName.text = item.subject.name
             when (item.subject.name.toLowerCase()) {
@@ -80,25 +80,33 @@ class RecentlyViewedListAdapter(private val listener: OnItemInteractionListener)
             Picasso.get().load(item.lesson.icon).into(thumbnail)
 
             setOnClickListener {
-                listener.onItemClick(item.lesson)
+                listener.onItemClick(
+                    Lesson(
+                        item.lesson.id,
+                        item.lesson.name,
+                        item.lesson.icon,
+                        item.lesson.media_url,
+                        item.lesson.subject_id,
+                        item.lesson.chapter_id
+                    ))
             }
         }
     }
 
-    class DiffCallback : DiffUtil.ItemCallback<LessonAndSubject>() {
+    class DiffCallback : DiffUtil.ItemCallback<RecentlyViewedWithSubject>() {
 
         override fun areItemsTheSame(
-            oldItem: LessonAndSubject,
-            newItem: LessonAndSubject
+            oldItem: RecentlyViewedWithSubject,
+            newItem: RecentlyViewedWithSubject
         ): Boolean {
-            return oldItem.lesson.id == newItem.lesson.id && oldItem.subject.id == newItem.subject.id
+            return oldItem.subject.id == newItem.subject.id
         }
 
         override fun areContentsTheSame(
-            oldItem: LessonAndSubject,
-            newItem: LessonAndSubject
+            oldItem: RecentlyViewedWithSubject,
+            newItem: RecentlyViewedWithSubject
         ): Boolean {
-            return oldItem.lesson == newItem.lesson && oldItem.subject == newItem.subject
+            return oldItem.subject == newItem.subject
         }
 
     }
