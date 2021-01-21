@@ -8,10 +8,11 @@ import com.ulesson.androidinterview.model.local.dao.ChapterDao
 import com.ulesson.androidinterview.model.local.dao.LessonDao
 import com.ulesson.androidinterview.model.local.entities.Chapter
 import com.ulesson.androidinterview.model.local.entities.Lesson
+import com.ulesson.androidinterview.model.local.entities.RecentlyViewed
 import com.ulesson.androidinterview.model.local.entities.Subject
 
 @Database(
-    entities = [Chapter::class, Subject::class, Lesson::class],
+    entities = [Chapter::class, Subject::class, Lesson::class, RecentlyViewed::class],
     exportSchema = false,
     version = 1
 )

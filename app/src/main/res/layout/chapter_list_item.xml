@@ -22,6 +22,7 @@
         android:layout_width="wrap_content"
         android:layout_height="161dp"
         tools:itemCount="3"
+        android:overScrollMode="never"
         tools:listitem="@layout/lesson_list_item"
         app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
         android:orientation="horizontal"

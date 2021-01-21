@@ -56,8 +56,9 @@ class LessonFragment : Fragment() {
 
     override fun onStop() {
         super.onStop()
-        if (::player.isInitialized && player.isPlaying) {
-            player.stop()
+        if (::player.isInitialized) {
+            if (player.isPlaying)
+                player.stop()
             player.release()
         }
     }

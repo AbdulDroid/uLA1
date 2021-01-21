@@ -10,7 +10,9 @@
     <ImageView
         android:id="@+id/backButton"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_height="36dp"
+        android:paddingBottom="6dp"
+        android:paddingTop="6dp"
         android:layout_marginStart="20dp"
         android:background="?selectableItemBackground"
         android:contentDescription="@string/back_button"
@@ -37,6 +39,7 @@
         android:id="@+id/chaptersList"
         android:layout_width="0dp"
         android:layout_height="0dp"
+        android:overScrollMode="never"
         tools:listitem="@layout/chapter_list_item"
         app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
         app:layout_constraintBottom_toBottomOf="parent"

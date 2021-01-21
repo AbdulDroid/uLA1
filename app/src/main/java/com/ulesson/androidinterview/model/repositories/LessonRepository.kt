@@ -3,7 +3,8 @@ package com.ulesson.androidinterview.model.repositories
 import androidx.lifecycle.LiveData
 import com.ulesson.androidinterview.model.local.dao.LessonDao
 import com.ulesson.androidinterview.model.local.entities.Lesson
-import com.ulesson.androidinterview.model.local.entities.LessonAndSubject
+import com.ulesson.androidinterview.model.local.entities.RecentlyViewed
+import com.ulesson.androidinterview.model.local.entities.RecentlyViewedWithSubject
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
 import javax.inject.Inject
@@ -18,10 +19,20 @@ class LessonRepository @Inject constructor(
         }
 
     suspend fun setAsRecentlyRead(lesson: Lesson) = withContext(Dispatchers.IO) {
-        dao.updateLesson(lesson.copy(recently_played = true))
+        dao.saveRecentlyViewed(
+            RecentlyViewed(
+                lesson.id,
+                lesson.name,
+                lesson.icon,
+                lesson.media_url,
+                lesson.subject_id,
+                lesson.chapter_id
+            )
+        )
     }
 
-    suspend fun getRecentlyPlayed(): LiveData<List<LessonAndSubject>> = withContext(Dispatchers.IO) {
-        dao.getSubjectAndLessons()
-    }
+    suspend fun getRecentlyPlayed(): LiveData<List<RecentlyViewedWithSubject>> =
+        withContext(Dispatchers.IO) {
+            dao.getSubjectAndRecentlyViewed()
+        }
 }
