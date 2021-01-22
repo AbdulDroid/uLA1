@@ -5,11 +5,12 @@ This project contains an implementation of MVVM based on requirement for an Asse
 
 ## Features
 * MVVVM
-* Kotlin Coroutines with Flow with LiveData for ViewModel and View Layers
-* Dagger Hilt for Dependency Injection
-* Retrofit for Network calls
-* Picasso for Image loading
-* GitHub actions for CI
+* Kotlin Coroutines with Flow for Repository layer and LiveData for ViewModel and View Layers.
+* Dagger Hilt for Dependency Injection.
+* Retrofit for Network calls.
+* Picasso for Image loading.
+* GitHub actions for CI.
+* ExoPlayer to play media.
 
 ## Prerequisite
 To build this project, you require:
