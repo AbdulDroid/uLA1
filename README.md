@@ -52,15 +52,15 @@ This abstraction enables me to separate concern of the project into separate pac
 ##### Models
 - This package holds all data classes used in the remote package.
 
-#### View 
+##### View 
 - This package contains all the UI classes and implementations to proper display data as requested in the designs shared.
 
 
-#### ViewModel 
+##### ViewModel 
 - This package contains all view-model classes. 
 
 
-#### Navigation
+##### Navigation
 -This package contains the abstraction for navigation all through the app.
 
 #### Unit Testing 
