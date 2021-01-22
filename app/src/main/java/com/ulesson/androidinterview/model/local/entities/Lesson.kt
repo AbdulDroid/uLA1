@@ -3,6 +3,7 @@ package com.ulesson.androidinterview.model.local.entities
 import android.os.Parcelable
 import androidx.room.Entity
 import androidx.room.ForeignKey
+import androidx.room.Index
 import androidx.room.PrimaryKey
 import kotlinx.android.parcel.Parcelize
 
@@ -17,7 +18,8 @@ import kotlinx.android.parcel.Parcelize
         parentColumns = ["id"],
         childColumns = ["chapter_id"],
         onDelete = ForeignKey.CASCADE
-    )]
+    )],
+    indices = [Index(value = ["chapter_id"], unique = true), Index(value = ["subject_id"], unique = true)]
 )
 @Parcelize
 data class Lesson(

@@ -1,10 +1,7 @@
 package com.ulesson.androidinterview.model.local.dao
 
 import androidx.lifecycle.LiveData
-import androidx.room.Dao
-import androidx.room.Insert
-import androidx.room.OnConflictStrategy
-import androidx.room.Query
+import androidx.room.*
 import com.ulesson.androidinterview.model.local.entities.Chapter
 import com.ulesson.androidinterview.model.local.entities.ChapterWithLessons
 import kotlinx.coroutines.flow.Flow
@@ -14,6 +11,7 @@ interface ChapterDao {
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     suspend fun saveChapter(chapters: List<Chapter>)
 
+    @Transaction
     @Query("select * from chapter where subject_id=:subject_id")
     fun getChapterWithLessons(subject_id: Int): Flow<List<ChapterWithLessons>>
 

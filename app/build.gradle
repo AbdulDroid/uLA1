@@ -2,9 +2,14 @@ apply plugin: 'com.android.application'
 apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-android-extensions'
 apply plugin: 'kotlin-kapt'
+apply plugin: 'kotlin-allopen'
 apply plugin: 'dagger.hilt.android.plugin'
-//apply plugin: 'kotlin-allopen'
 apply plugin: "androidx.navigation.safeargs.kotlin"
+
+allOpen {
+    // allows mocking for classes w/o directly opening them for release builds
+    annotation 'com.ulesson.androidinterview.testing.OpenClass'
+}
 
 android {
     compileSdkVersion Config.compileSdk
@@ -18,6 +23,11 @@ android {
 
         buildConfigField("String", "BASE_URL", BASE_URL)
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+        javaCompileOptions {
+            annotationProcessorOptions {
+                arguments += ["room.incremental":"true"]
+            }
+        }
     }
 
     buildTypes {

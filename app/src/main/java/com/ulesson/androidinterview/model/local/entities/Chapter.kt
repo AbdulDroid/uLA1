@@ -4,6 +4,7 @@ import android.os.Parcelable
 import androidx.room.Entity
 import androidx.room.ForeignKey
 import androidx.room.ForeignKey.CASCADE
+import androidx.room.Index
 import androidx.room.PrimaryKey
 import kotlinx.android.parcel.Parcelize
 
@@ -13,7 +14,8 @@ import kotlinx.android.parcel.Parcelize
         parentColumns = ["id"],
         childColumns = ["subject_id"],
         onDelete = CASCADE
-    )]
+    )],
+    indices = [Index(value = ["subject_id"], unique = true)]
 )
 @Parcelize
 data class Chapter(
