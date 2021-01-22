@@ -5,6 +5,7 @@
     <color name="colorAccent">#03DAC5</color>
     <color name="colorText">#313848</color>
     <color name="colorTextLight">#9799A1</color>
+    <color name="colorLoadingOverlay">#C0000000</color>
     <color name="colorWhite">#FFFFFF</color>
     <color name="colorWhiteLight">#4DFFFFFF</color>
     <color name="colorWhiteDuration">#99FFFFFF</color>

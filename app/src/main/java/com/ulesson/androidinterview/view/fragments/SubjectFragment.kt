@@ -16,6 +16,7 @@ import com.ulesson.androidinterview.view.adapters.ChaptersListAdapter
 import com.ulesson.androidinterview.view.adapters.LessonListAdapter
 import com.ulesson.androidinterview.viewmodel.ChapterViewModel
 import dagger.hilt.android.AndroidEntryPoint
+import kotlinx.android.synthetic.main.content_loading.*
 import kotlinx.android.synthetic.main.fragment_subject.*
 import javax.inject.Inject
 import javax.inject.Provider
@@ -71,6 +72,13 @@ class SubjectFragment : Fragment(), LessonListAdapter.OnItemClickListener {
     private fun setObservers() {
         viewModel.chapters.observe(viewLifecycleOwner) {
             adapter.submitList(it)
+        }
+        viewModel.loading.observe(viewLifecycleOwner) {
+            loader.visibility = if (it) {
+                View.VISIBLE
+            } else {
+                View.GONE
+            }
         }
     }
 }

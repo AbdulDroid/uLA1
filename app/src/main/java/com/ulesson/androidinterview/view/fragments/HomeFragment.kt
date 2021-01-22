@@ -18,6 +18,7 @@ import com.ulesson.androidinterview.view.adapters.SubjectGridAdapter
 import com.ulesson.androidinterview.viewmodel.LessonViewModel
 import com.ulesson.androidinterview.viewmodel.SubjectViewModel
 import dagger.hilt.android.AndroidEntryPoint
+import kotlinx.android.synthetic.main.content_loading.*
 import kotlinx.android.synthetic.main.fragment_home.*
 import javax.inject.Inject
 import javax.inject.Provider
@@ -66,6 +67,10 @@ class HomeFragment : Fragment(), SubjectGridAdapter.OnItemClickListener,
             setRecentlyViewedList(!isMore)
             viewMoreBtn.text = if (isMore) ("See Less") else ("View All")
         }
+        retryBtn.setOnClickListener {
+            viewModel.getSubjects()
+            errorGroup.visibility = View.GONE
+        }
         setObServers()
     }
 
@@ -95,17 +100,39 @@ class HomeFragment : Fragment(), SubjectGridAdapter.OnItemClickListener,
 
     private fun setObServers() {
         viewModel.subjects.observe(viewLifecycleOwner) {
+            if (it.isNotEmpty())
+                errorGroup.visibility = View.GONE
             adapter.submitList(it)
         }
         lessonsModel.recentlyPlayed.observe(viewLifecycleOwner) {
+            if (it.isNotEmpty())
+                errorGroup.visibility = View.GONE
             recentList = it
             setRecentlyViewedList()
         }
         viewModel.loading.observe(viewLifecycleOwner) {
-            Log.e("HomeFragment", "Loading = $it")
+            loader.visibility = if (it) {
+                View.VISIBLE
+            } else {
+                View.GONE
+            }
+        }
+        lessonsModel.loading.observe(viewLifecycleOwner) {
+            loader.visibility = if (it) {
+                View.VISIBLE
+            } else {
+                View.GONE
+            }
         }
         viewModel.error.observe(viewLifecycleOwner) {
-            Log.e("HomeFragment", "Error = $it")
+            errorMessage.text = if (it.contains("Internet")) {
+                errorImage.setImageResource(R.drawable.no_wifi)
+                getString(R.string.network_error_message)
+            } else {
+                errorImage.setImageResource(R.drawable.oops)
+                getString(R.string.generic_error_message)
+            }
+            errorGroup.visibility = View.VISIBLE
         }
     }
 }

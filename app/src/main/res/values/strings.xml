@@ -13,4 +13,9 @@
     <string name="view_all">View All</string>
     <string name="lesson_image">Lesson Image</string>
     <string name="back_button">Back Button</string>
+    <string name="network_error_message">Oops! It seems Simbi doesn\'t have internet connected, check your connection and click the RETRY button.</string>
+    <string name="generic_error_message">Oops! Seems something broke on our end while trying to process your request, Please click the RETRY button.</string>
+    <string name="error_image">Error Image</string>
+    <string name="loading_please_wait">Loading, Please wait…</string>
+    <string name="retry">Retry</string>
 </resources>

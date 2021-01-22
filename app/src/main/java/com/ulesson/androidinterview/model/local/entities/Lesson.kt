@@ -7,20 +7,7 @@ import androidx.room.Index
 import androidx.room.PrimaryKey
 import kotlinx.android.parcel.Parcelize
 
-@Entity(
-    foreignKeys = [ForeignKey(
-        entity = Subject::class,
-        parentColumns = ["id"],
-        childColumns = ["subject_id"],
-        onDelete = ForeignKey.CASCADE
-    ), ForeignKey(
-        entity = Chapter::class,
-        parentColumns = ["id"],
-        childColumns = ["chapter_id"],
-        onDelete = ForeignKey.CASCADE
-    )],
-    indices = [Index(value = ["chapter_id"], unique = true), Index(value = ["subject_id"], unique = true)]
-)
+@Entity
 @Parcelize
 data class Lesson(
     @PrimaryKey

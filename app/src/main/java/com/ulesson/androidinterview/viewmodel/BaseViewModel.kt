@@ -18,6 +18,7 @@ abstract class BaseViewModel : ViewModel() {
             _loading.postValue(true)
             block()
         } catch (e: Exception) {
+            e.printStackTrace()
             _error.postValue(
                 if (e.message?.contains("No address associated with hostname") == true)
                     "Check Internet Connection"

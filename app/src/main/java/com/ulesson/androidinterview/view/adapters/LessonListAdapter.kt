@@ -28,7 +28,6 @@ class LessonListAdapter(
     inner class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         fun bind(item: Lesson) = with(itemView) {
             lessonName.text = item.name
-            Log.e("LessonList", "icon ==> ${item.icon}")
             Picasso.get().load(item.icon).into(lessonImage)
             setOnClickListener {
                 listener?.onItemClick(item)
