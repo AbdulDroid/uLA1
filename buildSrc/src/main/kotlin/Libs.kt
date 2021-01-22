@@ -20,6 +20,7 @@ object Libs {
     const val room : String = "androidx.room:room-ktx:" + Versions.room
     const val room_runtime : String = "androidx.room:room-runtime:" + Versions.room
     const val lifecycle_viewmodel: String = "androidx.lifecycle:lifecycle-viewmodel-ktx:" + Versions.lifecycle
+    const val lifecycle_livedata: String = "androidx.lifecycle:lifecycle-livedata-ktx:" + Versions.lifecycle
     const val recyclerview : String = "androidx.recyclerview:recyclerview:" + Versions.recyclerView
     const val exoplayer_core: String = "com.google.android.exoplayer:exoplayer-core:" + Versions.exoplayer
     const val exoplayer_ui: String = "com.google.android.exoplayer:exoplayer-ui:" + Versions.exoplayer

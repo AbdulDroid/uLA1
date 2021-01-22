@@ -3,10 +3,12 @@ package com.ulesson.androidinterview.viewmodel
 import androidx.hilt.lifecycle.ViewModelInject
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MediatorLiveData
+import androidx.lifecycle.asLiveData
 import androidx.lifecycle.viewModelScope
 import com.ulesson.androidinterview.model.local.entities.Lesson
 import com.ulesson.androidinterview.model.local.entities.RecentlyViewedWithSubject
 import com.ulesson.androidinterview.model.repositories.LessonRepository
+import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 
 class LessonViewModel @ViewModelInject constructor(
@@ -21,7 +23,7 @@ class LessonViewModel @ViewModelInject constructor(
 
     fun getLessons(subject_id: Int, chapter_id: Int) = viewModelScope.launch {
         loadResult {
-            _lessons.addSource(repo.getLessons(subject_id, chapter_id)) {
+            _lessons.addSource(repo.getLessons(subject_id, chapter_id).asLiveData(Dispatchers.IO)) {
                 _lessons.value = it
             }
         }
@@ -29,7 +31,7 @@ class LessonViewModel @ViewModelInject constructor(
 
     fun getRecentlyPlayed() = viewModelScope.launch {
         loadResult {
-            _recentlyPlayed.addSource(repo.getRecentlyPlayed()) {
+            _recentlyPlayed.addSource(repo.getRecentlyPlayed().asLiveData(Dispatchers.IO)) {
                 _recentlyPlayed.value = it
             }
         }

@@ -26,6 +26,9 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
     }
+    testOptions {
+        unitTests.includeAndroidResources = true
+    }
     compileOptions {
         sourceCompatibility JavaVersion.VERSION_1_8
         targetCompatibility JavaVersion.VERSION_1_8
@@ -38,11 +41,6 @@ android {
 dependencies {
     implementation(
             fileTree(dir: "libs", include: ["*.jar"]),
-            /*project(Modules.cache),
-            project(Modules.home),
-            project(Modules.lesson),
-            project(Modules.subject),
-            project(Modules.network),*/
             Libs.kotlin_stdlib,
             Libs.androidx_core,
             Libs.appcompat,
@@ -67,7 +65,8 @@ dependencies {
             Libs.recyclerview,
             Libs.exoplayer_core,
             Libs.exoplayer_ui,
-            Libs.legacy
+            Libs.legacy,
+            Libs.lifecycle_livedata
     )
     debugImplementation (
             Libs.fragment_testing,

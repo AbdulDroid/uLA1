@@ -3,11 +3,13 @@ package com.ulesson.androidinterview.viewmodel
 import androidx.hilt.lifecycle.ViewModelInject
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MediatorLiveData
+import androidx.lifecycle.asLiveData
 import androidx.lifecycle.viewModelScope
 import com.ulesson.androidinterview.model.local.entities.Chapter
 import com.ulesson.androidinterview.model.local.entities.Lesson
 import com.ulesson.androidinterview.model.local.entities.Subject
 import com.ulesson.androidinterview.model.repositories.SubjectRepository
+import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 
 class SubjectViewModel @ViewModelInject constructor(
@@ -19,7 +21,7 @@ class SubjectViewModel @ViewModelInject constructor(
 
     fun getSubjects() = viewModelScope.launch {
         loadResult {
-            _subjects.addSource(repo.getData()) {
+            _subjects.addSource(repo.getData().asLiveData(Dispatchers.IO)) {
                 _subjects.value = it
             }
         }

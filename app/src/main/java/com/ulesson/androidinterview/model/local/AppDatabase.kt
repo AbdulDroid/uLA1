@@ -16,7 +16,6 @@ import com.ulesson.androidinterview.model.local.entities.Subject
     exportSchema = false,
     version = 1
 )
-@TypeConverters(Converters::class)
 abstract class AppDatabase : RoomDatabase() {
     abstract fun subjectDao(): SubjectDao
     abstract fun chapterDao(): ChapterDao

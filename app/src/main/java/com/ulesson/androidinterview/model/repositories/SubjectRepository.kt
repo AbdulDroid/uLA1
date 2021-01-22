@@ -10,6 +10,7 @@ import com.ulesson.androidinterview.model.local.entities.Subject
 import com.ulesson.androidinterview.model.remote.ApiService
 import com.ulesson.androidinterview.model.remote.Network
 import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.withContext
 import javax.inject.Inject
 import javax.inject.Singleton
@@ -23,7 +24,7 @@ class SubjectRepository @Inject constructor(
     private val networkUtil: Network
 ) {
 
-    suspend fun getData(): LiveData<List<Subject>> =
+    suspend fun getData(): Flow<List<Subject>> =
         withContext(Dispatchers.IO) {
             val initial = dao.getSubjects()
             if (networkUtil.hasInternet()) {

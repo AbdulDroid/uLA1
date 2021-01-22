@@ -1,0 +1,79 @@
+{
+  "data": {
+    "status": "success",
+    "message": "success",
+    "subjects": [
+      {
+        "id": 2,
+        "name": "Mathematics",
+        "icon": "https://ulesson-staging.s3.eu-west-2.amazonaws.com/subject_icons/icons/2/thumb/thumb.jpeg",
+        "chapters": [
+          {
+            "id": 151,
+            "name": "Exam Test",
+            "lessons": [
+              {
+                "id": 1168,
+                "name": "dsfjdfkj",
+                "icon": "https://ulesson-staging.s3.eu-west-2.amazonaws.com/lesson_icons/icons/defaults/thumb/lesson.png",
+                "media_url": "https://d2zjjckqo1cait.cloudfront.net/free_videos/1/original/stapler-FuXgvD.mp4",
+                "subject_id": 2,
+                "chapter_id": 151
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": 85,
+        "name": "English",
+        "icon": "https://ulesson-staging.s3.eu-west-2.amazonaws.com/subject_icons/icons/defaults/thumb/subject.png",
+        "chapters": [
+          {
+            "id": 359,
+            "name": "Prose",
+            "lessons": [
+              {
+                "id": 3118,
+                "name": "vvvffg",
+                "icon": "https://ulesson-staging.s3.eu-west-2.amazonaws.com/lesson_icons/icons/defaults/thumb/lesson.png",
+                "media_url": "https://d2zjjckqo1cait.cloudfront.net/free_videos/70/original/stapler-bRXerd.MP4",
+                "subject_id": 85,
+                "chapter_id": 359
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": 4,
+        "name": "Chemistry",
+        "icon": "https://ulesson-staging.s3.eu-west-2.amazonaws.com/subject_icons/icons/11/thumb/download%20%2823%29.jpg",
+        "chapters": [
+          {
+            "id": 8,
+            "name": "Test Chapter",
+            "lessons": [
+              {
+                "id": 134,
+                "name": "ABC Lesson",
+                "icon": "https://ulesson-staging.s3.eu-west-2.amazonaws.com/lesson_icons/icons/defaults/thumb/lesson.png",
+                "media_url": "https://d2zjjckqo1cait.cloudfront.net/free_videos/4/original/stapler-Y8dgSj.mp4",
+                "subject_id": 4,
+                "chapter_id": 8
+              },
+              {
+                "id": 149,
+                "name": "T Lesson",
+                "icon": "https://ulesson-staging.s3.eu-west-2.amazonaws.com/lesson_icons/icons/defaults/thumb/lesson.png",
+                "media_url": "https://d2zjjckqo1cait.cloudfront.net/free_videos/21/original/stapler-JwJBYC.mp4",
+                "subject_id": 4,
+                "chapter_id": 8
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  }
+}

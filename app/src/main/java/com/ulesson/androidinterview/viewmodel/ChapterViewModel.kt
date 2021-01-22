@@ -1,12 +1,10 @@
 package com.ulesson.androidinterview.viewmodel
 
 import androidx.hilt.lifecycle.ViewModelInject
-import androidx.lifecycle.LiveData
-import androidx.lifecycle.MediatorLiveData
-import androidx.lifecycle.MutableLiveData
-import androidx.lifecycle.viewModelScope
+import androidx.lifecycle.*
 import com.ulesson.androidinterview.model.local.entities.ChapterWithLessons
 import com.ulesson.androidinterview.model.repositories.ChapterRepository
+import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 
 class ChapterViewModel @ViewModelInject constructor(
@@ -21,7 +19,7 @@ class ChapterViewModel @ViewModelInject constructor(
 
     fun getChapters(id: Int) = viewModelScope.launch {
         loadResult {
-            _chapters.addSource(repo.getChapters(id)) {
+            _chapters.addSource(repo.getChapters(id).asLiveData(Dispatchers.IO)) {
                 _chapters.value = it
             }
         }

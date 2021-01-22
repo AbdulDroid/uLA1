@@ -13,13 +13,5 @@ gradleEnterprise {
 }
 
 include(
-    ":app",
-    ":navigation",
-    ":common:cache",
-    ":common:network",
-    ":common:data",
-    ":common:domain",
-    ":features:home",
-    ":features:subject",
-    ":features:lesson"
+    ":app"
 )

@@ -1,10 +1,11 @@
 package com.ulesson.androidinterview.model.local.dao
 
-import androidx.lifecycle.LiveData
-import androidx.room.*
-import com.ulesson.androidinterview.model.local.entities.Chapter
-import com.ulesson.androidinterview.model.local.entities.Lesson
+import androidx.room.Dao
+import androidx.room.Insert
+import androidx.room.OnConflictStrategy
+import androidx.room.Query
 import com.ulesson.androidinterview.model.local.entities.Subject
+import kotlinx.coroutines.flow.Flow
 
 @Dao
 interface SubjectDao {
@@ -13,5 +14,5 @@ interface SubjectDao {
     suspend fun saveSubjects(subjects: List<Subject>)
 
     @Query("select * from subject")
-    fun getSubjects(): LiveData<List<Subject>>
+    fun getSubjects(): Flow<List<Subject>>
 }

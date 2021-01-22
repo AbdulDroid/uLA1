@@ -29,3 +29,13 @@ data class Lesson(
     val subject_id: Int = 0,
     val chapter_id: Int = 0
 ) : Parcelable
+
+fun Lesson.toRecentlyViewed() =
+    RecentlyViewed(
+        id,
+        name,
+        icon,
+        media_url,
+        subject_id,
+        chapter_id
+    )
