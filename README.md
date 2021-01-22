@@ -72,7 +72,6 @@ This abstraction enables me to separate concern of the project into separate pac
 
 #### Linting 
 - Linting was setup for the app Module using https://github.com/jlleitschuh/ktlint-gradle
-- Configured in all modules.
 
 
 #### Hilt 
