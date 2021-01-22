@@ -16,7 +16,7 @@ To build this project, you require:
 - Android Studio 4.0.1 or higher
 - Gradle 6.1.1
 
-- ##Note: 
+## Note: 
   The Icon field in the object was used throughout the app for the images which seemed different from what was on the design as the thumbnail urls were not provided per lesson.  
 
 - The App is broken down into five main packages 
